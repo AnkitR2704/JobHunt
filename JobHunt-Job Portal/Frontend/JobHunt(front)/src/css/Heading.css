@@ -1,0 +1,14 @@
+
+.head{
+    background-color: #22223b;
+    color: white;
+}
+
+.head div h3{
+    color: white;
+}
+
+.head nav a{
+    text-decoration: none;
+    color: white;
+}

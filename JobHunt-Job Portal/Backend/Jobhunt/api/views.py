@@ -10,17 +10,17 @@ from rest_framework.decorators import api_view
 def home(request):
     return HttpResponse('Home page for api')
 
-@api_view(['GET','POST'])
+@api_view(['POST'])
 def registeruser(request):
     if request.method == 'POST':
         serializer_obj=UserSerializer(data=request.data)
-        if serializer_obj.is_valid() == True:
+        if serializer_obj.is_valid():
             uobj=serializer_obj.save()
             uobj.set_password(serializer_obj.validated_data['password'])
             uobj.save()
-            Token.objects.create(user=uobj)
+            Token.objects.get_or_create(user=uobj)
             return Response(status=HTTP_200_OK)
         else:
-            return Response(status=HTTP_400_BAD_REQUEST)
+            return Response(serializer_obj.errors,status=HTTP_400_BAD_REQUEST)
             
     

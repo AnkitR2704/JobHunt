@@ -1,0 +1,27 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    
+}
+.mainbox{
+    height: 50vh;
+    width: 60vw;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: rgb(255, 240, 222);
+    margin-top: 5vh;
+    margin-left: 20vw;
+    padding-top: 15px;
+    padding-left: 10px;
+}
+
+.full h2{
+    text-align: center;
+    margin-top: 15vh;
+}
+
+.full h3{
+    text-align: center;
+    text-decoration: underline;
+}
+
