@@ -1,22 +1,35 @@
 import '../css/Registration.css'
 import axios from 'axios';
 import { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 function Registration(){
     const [role,setRole] = useState('');
+    const navigate = useNavigate();
     const nameRef = useRef();
     const emailRef = useRef();
     const passwordRef = useRef();
-    let post_register = (event) => {
+    let post_register = async (event) => {
         event.preventDefault(); 
     let data = {
-        'name': nameRef.current.value,
+        'username': nameRef.current.value,
         'email': emailRef.current.value,
         'password': passwordRef.current.value,
         'role': role,
     }
-    // let post_url='http://127.0.0.1:8000/api/register/';
-    // axios.post(post_url,data).then((resp)=>{
-    //     console.log('success')
+    try{
+    let post_url='http://127.0.0.1:8000/api/register/';
+    const response= await axios.post(post_url,data);
+    if(response.status == 200){
+        console.log('received');
+        navigate('/');
+    }
+  }catch (error){
+      console.error('Registration Error:',error);
+      alert('Failed to Register');
+  }
+    // .then((resp)=>{
+    //     console.log('success');
+    //     navigate('/login');
     // }).catch((err)=>{
     //     console.log('error')
     // }

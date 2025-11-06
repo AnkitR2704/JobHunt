@@ -1,27 +1,91 @@
-*{
-    margin: 0px;
-    padding: 0px;
-    
-}
-.mainbox{
-    height: 50vh;
-    width: 60vw;
-    border: 2px solid black;
-    border-radius: 10px;
-    background-color: rgb(255, 240, 222);
-    margin-top: 5vh;
-    margin-left: 20vw;
-    padding-top: 15px;
-    padding-left: 10px;
+.full {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
 }
 
-.full h2{
-    text-align: center;
-    margin-top: 15vh;
+.full h2 {
+  font-size: 2rem;
+  color: #0d47a1;
+  margin-bottom: 0.5rem;
 }
 
-.full h3{
-    text-align: center;
-    text-decoration: underline;
+.full h2 i b {
+  color: #1565c0;
 }
 
+.full h3 {
+  color: #1976d2;
+  margin-bottom: 2rem;
+}
+
+.mainbox {
+  background: #ffffff;
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 500px;
+}
+
+.form-label {
+  font-weight: 600;
+  color: #0d47a1;
+}
+
+.form-control {
+  border: 1px solid #90caf9;
+  border-radius: 8px;
+  padding: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 5px rgba(25, 118, 210, 0.3);
+}
+
+.form-check-label {
+  margin-left: 5px;
+  color: #333;
+}
+
+.form-check-input {
+  accent-color: #1976d2;
+}
+
+.btn-primary {
+  background-color: #1976d2;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0d47a1;
+}
+
+.row {
+  margin-bottom: 1.2rem;
+}
+
+@media (max-width: 600px) {
+  .mainbox {
+    padding: 1.5rem;
+  }
+
+  .full h2 {
+    font-size: 1.6rem;
+  }
+
+  .full h3 {
+    font-size: 1.2rem;
+  }
+}
