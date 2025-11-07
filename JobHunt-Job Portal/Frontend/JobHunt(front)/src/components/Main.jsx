@@ -10,11 +10,12 @@ function Main(){
     return(
         <div className="main">
             <Routes>
-                <Route path='/home' element={<Home/>} />
-                <Route path='/postjob' element={<PostJob/>}/>
-                <Route path='/viewJob' element={<ViewJob/>}/>
-                <Route path='/compProf' element={<CompanyProfile/>} />   
-                <Route path='/viewApplicant' element={<ViewApplicants/>} />
+                <Route path='home' element={<Home/>} />
+                <Route path='postjob' element={<PostJob/>}/>
+                <Route path='viewJob' element={<ViewJob/>}/>
+                <Route path='compProf' element={<CompanyProfile/>} />   
+                <Route path='viewApplicant' element={<ViewApplicants/>} />
+                
             </Routes>
         </div>
     );

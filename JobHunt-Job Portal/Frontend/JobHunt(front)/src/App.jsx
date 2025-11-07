@@ -7,7 +7,7 @@ import Demo from './components/Demo'
 import Login from './components/Login'
 import Dashboard from './components/Dashboard'
 import DashboardJS from './components/DashboardJS'
-
+import { Route,Routes } from 'react-router-dom'
 
 function App() {
 
@@ -16,6 +16,12 @@ function App() {
     {/*  < Registration/> */}
     {/* <Login/> */} 
      <DashboardJS/> 
+    <Routes>
+      <Route path='/' element={<Login/>}/>
+      <Route path='/register' element={< Registration/>}/> 
+      <Route path='/employer-dashboard/*' element={<Dashboard/>}/> 
+      <Route path='/jobseeker-dashboard/*' element={<DashboardJS/>}/>
+    </Routes>
    </div>
   )
 }

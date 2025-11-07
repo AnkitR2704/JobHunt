@@ -4,7 +4,7 @@ function Home(){
         <div>
         <div>
             <h3>
-                Welcome,<br />
+                Welcome<br />
                 <small class="text-body-secondary">VCUBE PVT LIMITED</small>
             </h3>
         

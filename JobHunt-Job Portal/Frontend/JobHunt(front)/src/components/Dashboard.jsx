@@ -6,11 +6,11 @@ import { BrowserRouter } from "react-router-dom";
 function Dashboard(){
     return(
         <div>
-            <BrowserRouter>
+            
             <Heading/>
             <Main/>
             <Footer/>
-            </BrowserRouter>
+            
         </div>
     );
 

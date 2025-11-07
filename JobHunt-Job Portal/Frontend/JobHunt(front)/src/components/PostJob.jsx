@@ -16,7 +16,7 @@ function PostJob(){
             <option value="2-3 years">2-3 years</option>
             <option value="3-5 years">3-5 years</option>
             <option value="2-3 years">5-8 years</option>
-            <option value="3-5 years">8-10+ years</option>
+            <option value="3-5 years">8+ years</option>
           </select><br /><br />
           <label htmlFor="">Location :</label>
           <input type="text" placeholder='Enter Location'/><br /><br />

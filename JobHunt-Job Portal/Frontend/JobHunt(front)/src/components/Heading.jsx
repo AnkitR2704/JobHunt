@@ -7,27 +7,27 @@ function Heading(){
         <div className="head">
          <nav class="navbar navbar-expand-lg ">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"><h3><i><Link to='/home'>JobHunt</Link></i></h3></a>
+    <h3><i><Link to='/employer-dashboard/home'>JobHunt</Link></i></h3>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" ><Link to='/home'>Home</Link></a>
+          <Link to='/employer-dashboard/home'>Home</Link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" ><Link to='/postjob'>Post Job</Link></a>
+         <Link to='/employer-dashboard/postjob'>Post Job</Link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" ><Link to='/viewJob'>View Job</Link></a>
+          <Link to='/employer-dashboard/viewJob'>View Job</Link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" ><Link to='/viewApplicant'>View Applicants </Link></a>
+          <Link to='/employer-dashboard/viewApplicant'>View Applicants </Link>
           
         </li>
         <li class="nav-item">
-          <a class="nav-link" ><Link to='/compProf' >Company Profile</Link></a>
+          <Link to='/employer-dashboard/compProf' >Company Profile</Link>
         </li>
       </ul>
     </div>

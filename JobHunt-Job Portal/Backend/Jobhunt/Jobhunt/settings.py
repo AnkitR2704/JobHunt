@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'test',
     'api',
+    'api2',
 ]
 
 MIDDLEWARE = [
@@ -80,8 +81,12 @@ WSGI_APPLICATION = 'Jobhunt.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'jobhunt_db',
+        'USER': 'root',
+        'PASSWORD': 'ankitvk18',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
@@ -128,3 +133,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ORIGIN_ALLOW_ALL = True
+AUTH_USER_MODEL = 'api.CustomUser'
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
