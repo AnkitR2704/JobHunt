@@ -15,7 +15,6 @@ function Main(){
                 <Route path='/viewJob' element={<ViewJob/>}/>
                 <Route path='/compProf' element={<CompanyProfile/>} />   
                 <Route path='/viewApplicant' element={<ViewApplicants/>} />
-                
             </Routes>
         </div>
     );

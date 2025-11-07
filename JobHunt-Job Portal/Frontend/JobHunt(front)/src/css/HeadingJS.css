@@ -1,9 +1,16 @@
 
 .head{
-    background-color: #22223b;
+    background-color: #191950;
     color: white;
+    position: sticky;
+    top:0;
+    z-index:999;
 }
+
 
 .head div h3{
     color: white;
+     
+
 }
+

@@ -14,8 +14,8 @@ function App() {
   return (
    <div>
     {/*  < Registration/> */}
-    {/* <Login/>  */}
-     <DashboardJS />  
+    {/* <Login/> */} 
+     <DashboardJS/> 
    </div>
   )
 }
