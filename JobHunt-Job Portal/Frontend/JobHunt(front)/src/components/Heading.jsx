@@ -1,8 +1,16 @@
 import '../css/Heading.css';
 import CompanyProfile from './CompanyProfile';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Heading(){
+   let navigate=useNavigate();
+  function handleLogout() {
+   
+    localStorage.removeItem("token");   
+    localStorage.removeItem("role");    
+    navigate("/");                      
+  }
     return(
         <div className="head">
          <nav class="navbar navbar-expand-lg ">
@@ -30,8 +38,11 @@ function Heading(){
           <Link to='/employer-dashboard/compProf' >Company Profile</Link>
         </li>
       </ul>
+        
+
     </div>
   </div>
+  <button className="btn btn-danger" onClick={handleLogout}>Logout</button>
 </nav>
         </div>
     );

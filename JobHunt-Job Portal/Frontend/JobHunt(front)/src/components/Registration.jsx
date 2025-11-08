@@ -40,11 +40,19 @@ function Registration(){
     return(
       <div className='full'>
         <h2>Welcome to <i><b>JOBHUNT</b></i></h2>
+        <figure class="text-center">
+  <blockquote class="blockquote">
+    <p>Your future is calling. Start the journey today.</p>
+  </blockquote>
+  <figcaption class="blockquote-footer">
+     JobHunt<cite title="Source Title"></cite>
+  </figcaption>
+</figure>
         <h3>Registration</h3>
     <div className='mainbox'>
     <form>
      <div className="row mb-3" >
-    <label htmlFor="inputtext" className="col-sm-2 col-form-label">Name</label>
+    <label htmlFor="inputtext" className="col-sm-2 col-form-label">Username</label>
     <div className="col-sm-10">
       <input type="text" className="form-control" id="inputtext" ref={nameRef}/>
     </div>
