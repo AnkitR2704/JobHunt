@@ -15,7 +15,7 @@ function App() {
    <div>
     {/*  < Registration/> */}
     {/* <Login/> */} 
-     <DashboardJS/> 
+    {/* <DashboardJS/>  */}
     <Routes>
       <Route path='/' element={<Login/>}/>
       <Route path='/register' element={< Registration/>}/> 

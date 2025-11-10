@@ -6,11 +6,11 @@ import { BrowserRouter } from "react-router-dom";
 function DashboardJS(){
     return(
         <div>
-            <BrowserRouter>
+            
             <HeadingJS/>
             <MainJS/>
             <Footer/>
-            </BrowserRouter>
+            
         </div>
     );
 }

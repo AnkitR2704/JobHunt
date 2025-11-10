@@ -1,6 +1,8 @@
 from rest_framework import serializers
 from api.models import CustomUser  # import from api, not api2
 from django.contrib.auth import authenticate
+from .models import CompanyProfile
+
 
 # Registration Serializer
 class RegisterSerializer(serializers.ModelSerializer):
@@ -31,3 +33,10 @@ class LoginSerializer(serializers.Serializer):
             data['user'] = user
             return data
         raise serializers.ValidationError("Invalid username or password")
+
+
+class CompanyProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CompanyProfile
+        fields = "__all__"
+        read_only_fields = ['employer']

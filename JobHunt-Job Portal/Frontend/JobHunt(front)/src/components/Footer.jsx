@@ -6,7 +6,7 @@ function Footer(){
             <footer className="footer text-center">
                 <div className="container">
                     <p>Copyright &copy; 2025. All rights reserved.</p>
-                    <p>Designed with <span class="text-danger">&hearts;</span> VCubians</p>
+                    <p>Designed with <span className="text-danger">&hearts;</span> VCubians</p>
                 </div>
             </footer>
         </div>

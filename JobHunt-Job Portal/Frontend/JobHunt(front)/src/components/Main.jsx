@@ -5,6 +5,7 @@ import ViewApplicants from './ViewApplicants';
 import ViewJob from './ViewJob';
 import Home from './Home';
 import PostJob from './PostJob';
+import EditCompanyProfile from './EditCompanyProfile';
 
 function Main(){
     return(
@@ -15,7 +16,7 @@ function Main(){
                 <Route path='viewJob' element={<ViewJob/>}/>
                 <Route path='compProf' element={<CompanyProfile/>} />   
                 <Route path='viewApplicant' element={<ViewApplicants/>} />
-                
+                <Route path='editProfile' element={<EditCompanyProfile/>}/>
             </Routes>
         </div>
     );

@@ -11,36 +11,30 @@ function Login(){
             'username':usernameRef.current.value,
             'password':pswrdRef.current.value,
         }
-        let url='http://127.0.0.1:8000/api2/login/';
-        try{
-            console.log(data)
-            const resp = await axios.post(url,data, {
-                headers: {
-                    'Content-Type': 'application/json',
-                }
-            })
-            console.log(resp)
-            console.log('success')
-            console.log(resp.data)
-             // Save token and role for later use
-            localStorage.setItem('token', resp.data.token);
-            localStorage.setItem('role', resp.data.role);
+        let url = 'http://127.0.0.1:8000/api2/login/';
 
-            // Redirect based on role
-            if (resp.data.role === 'employer') {
-                console.log('employer dashboard')
-                localStorage.setItem("token", resp.data.token);
-                localStorage.setItem("role", resp.data.role);
-                navigate('/employer-dashboard/home');
-            } else if (resp.data.role === 'job_seeker') {
-                console.log('job seeker dashboard')
-                navigate('/jobseeker-dashboard');
-            } else {
-                navigate('/');
-            }
-            }catch(err){
-                console.log('failed',err)
-                 }  
+axios.post(url, data, {
+  headers: {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+  }
+})
+.then((resp) => {
+  localStorage.setItem("token", resp.data.token);
+  localStorage.setItem("role", resp.data.role);
+
+  if (resp.data.role === 'employer') {
+    navigate('/employer-dashboard/home');
+  } else if (resp.data.role === 'job_seeker') {
+    navigate('/jobseeker-dashboard');
+  } else {
+    navigate('/');
+  }
+})
+.catch((err) => {
+  console.log("Login Error:", err.response?.data || err.message);
+});
+
     }
     return(
     //   <div>
@@ -65,7 +59,7 @@ function Login(){
     JobHunt <cite title="Source Title"></cite>
   </figcaption>
 </figure>
-  <h3><u>Login Here</u></h3>
+  <h3><u>Login</u></h3>
 
   <div className="login-box">
       <input type="text" placeholder="Enter your username" ref={usernameRef}/>

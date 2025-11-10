@@ -7,7 +7,7 @@ function Home(){
                 Welcome<br />
                 <small class="text-body-secondary">VCUBE PVT LIMITED</small>
             </h3>
-        
+        <br />
         </div>
         <div class="card-group">
   <div class="card">

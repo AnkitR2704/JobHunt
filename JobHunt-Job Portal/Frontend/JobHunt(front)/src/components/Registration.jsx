@@ -2,6 +2,7 @@ import '../css/Registration.css'
 import axios from 'axios';
 import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 function Registration(){
     const [role,setRole] = useState('');
     const navigate = useNavigate();
@@ -48,7 +49,7 @@ function Registration(){
      JobHunt<cite title="Source Title"></cite>
   </figcaption>
 </figure>
-        <h3>Registration</h3>
+        <h4>Registration</h4>
     <div className='mainbox'>
     <form>
      <div className="row mb-3" >
@@ -89,7 +90,10 @@ function Registration(){
   </fieldset>
  
   <button type="submit" className="btn btn-primary" onClick={post_register}>Register</button>
+  <br/>
+  <p>Already have an Account?<Link to='/'>Login here</Link></p>
 </form>
+
     </div>
     </div>
     );
