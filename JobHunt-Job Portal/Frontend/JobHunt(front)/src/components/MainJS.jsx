@@ -12,10 +12,10 @@ function MainJS(){
     return(
         <div className="main">
             <Routes>
-                <Route path='/home1' element={<Home/>} />
+                <Route path='/home' element={<Home/>} />
                 <Route path='/Search job' element={<Searchjob/>}/>
                  <Route path='/Applied Jobs' element={<Appliedjobs/>} />   
-                <Route path='/Profile2' element={<Profile/>} />   
+                <Route path='/Profile' element={<Profile/>} />   
                 
             </Routes>
         </div>

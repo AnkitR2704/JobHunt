@@ -17,11 +17,11 @@ function PostJob() {
   const saveJob = () => {
     const jobData = {
       job_title: titleRef.current.value,
-      job_description: descRef.current.value,
+      description: descRef.current.value,
       job_type: typeRef.current.value,
       location: locRef.current.value,
       salary: salaryRef.current.value,
-      experience_required: expRef.current.value,
+      experience: expRef.current.value,
       skills_required: skillsRef.current.value,
       application_deadline: deadlineRef.current.value
     };
@@ -35,7 +35,7 @@ function PostJob() {
     })
     .then((resp) => {
       console.log("Job Posted Successfully", resp.data);
-      navigate("/employer-dashboard/jobs"); // Change to your job list page route
+      navigate("/employer-dashboard/viewJob"); // Change to your job list page route
     })
     .catch((err) => {
       console.log("Error:", err.response.data);

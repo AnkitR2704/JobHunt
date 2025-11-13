@@ -6,6 +6,10 @@ import ViewJob from './ViewJob';
 import Home from './Home';
 import PostJob from './PostJob';
 import EditCompanyProfile from './EditCompanyProfile';
+import JobDetails from "./JobDetails";
+import EditJob from "./EditJob";
+
+
 
 function Main(){
     return(
@@ -17,6 +21,9 @@ function Main(){
                 <Route path='compProf' element={<CompanyProfile/>} />   
                 <Route path='viewApplicant' element={<ViewApplicants/>} />
                 <Route path='editProfile' element={<EditCompanyProfile/>}/>
+                <Route path="job/:id" element={<JobDetails />} />
+                <Route path="/edit-job/:id" element={<EditJob />} />
+
             </Routes>
         </div>
     );

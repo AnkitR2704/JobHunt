@@ -41,11 +41,11 @@ function Registration(){
     return(
       <div className='full'>
         <h2>Welcome to <i><b>JOBHUNT</b></i></h2>
-        <figure class="text-center">
-  <blockquote class="blockquote">
+        <figure className="text-center">
+  <blockquote className="blockquote">
     <p>Your future is calling. Start the journey today.</p>
   </blockquote>
-  <figcaption class="blockquote-footer">
+  <figcaption className="blockquote-footer">
      JobHunt<cite title="Source Title"></cite>
   </figcaption>
 </figure>

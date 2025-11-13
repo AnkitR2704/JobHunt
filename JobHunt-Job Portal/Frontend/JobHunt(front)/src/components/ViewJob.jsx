@@ -1,35 +1,26 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
+import JobCard from "./JobCard"; // import the JobCard component
 
+function ViewJob() {
+  const [jobs, setJobs] = useState([]);
 
-function ViewJob(){
-    return(
-        <div>
-            <br />
-             <div class="row">
-  <div class="col-sm-6 mb-3 mb-sm-0">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">VCUBE PVT LMT</h5>
-        <h4 class="card-title">Python Developer</h4>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">View Details</a>
-      </div>
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    axios.get("http://127.0.0.1:8000/api2/job/list/", {  // Fetch all jobs
+      headers: { Authorization: `Token ${token}` }
+    })
+    .then(resp => setJobs(resp.data))
+    .catch(err => console.log(err));
+  }, []);
+
+  return (
+    <div className="row">
+      {jobs.map(job => (
+        <JobCard key={job.id} job={job} />
+      ))}
     </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">VCUBE PVT LMT</h5>
-        <h4 class="card-title">FullStack Developer</h4>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">View Details</a>
-      </div>
-    </div>
-  </div>
-</div>
-           
-        </div>
-        
-    );
+  );
 }
 
 export default ViewJob;

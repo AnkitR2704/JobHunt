@@ -2,7 +2,8 @@
 from django.db import models
 from api.models import CustomUser  # import the existing user model
 from django.conf import settings   # <-- Use this instead of User model directly
-
+#from django.contrib.auth.models import User
+from django.conf import settings
 
 # Example: a profile or additional info model for api2
 class JobProfile(models.Model):
@@ -37,3 +38,15 @@ class CompanyProfile(models.Model):
     def __str__(self):
         return self.company_name
 
+class Job(models.Model):
+    employer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    job_title = models.CharField(max_length=200)
+    description = models.TextField()
+    location = models.CharField(max_length=200)
+    salary = models.CharField(max_length=100, blank=True, null=True)
+    experience = models.CharField(max_length=100, blank=True, null=True)
+    skills_required = models.CharField(max_length=300)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.job_title

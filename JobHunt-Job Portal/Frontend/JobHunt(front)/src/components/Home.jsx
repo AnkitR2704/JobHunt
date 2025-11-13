@@ -9,30 +9,23 @@ function Home(){
             </h3>
         <br />
         </div>
-        <div class="card-group">
-  <div class="card">
-    
-    <div class="card-body">
-      <h5 class="card-title">Total Job Post</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+        <div class="row">
+  <div class="col-sm-6 mb-3 mb-sm-0">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Total Post Job</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">View All Jobs</a>
+      </div>
     </div>
   </div>
-  <div class="card">
-    
-    <div class="card-body">
-      <h5 class="card-title">Total Applicants</h5>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-
-    </div>
-  </div>
-  <div class="card">
-    
-    <div class="card-body">
-      <h5 class="card-title">Active Jobs</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Total Applicants</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">View All Applicants</a>
+      </div>
     </div>
   </div>
 </div>

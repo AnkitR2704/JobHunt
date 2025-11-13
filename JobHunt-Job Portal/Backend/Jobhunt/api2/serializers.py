@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from api.models import CustomUser  # import from api, not api2
 from django.contrib.auth import authenticate
-from .models import CompanyProfile
+from .models import CompanyProfile,Job
 
 
 # Registration Serializer
@@ -38,5 +38,12 @@ class LoginSerializer(serializers.Serializer):
 class CompanyProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = CompanyProfile
+        fields = "__all__"
+        read_only_fields = ['employer']
+
+
+class JobSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Job
         fields = "__all__"
         read_only_fields = ['employer']

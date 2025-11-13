@@ -26,7 +26,7 @@ axios.post(url, data, {
   if (resp.data.role === 'employer') {
     navigate('/employer-dashboard/home');
   } else if (resp.data.role === 'job_seeker') {
-    navigate('/jobseeker-dashboard');
+    navigate('/jobseeker-dashboard/home');
   } else {
     navigate('/');
   }
