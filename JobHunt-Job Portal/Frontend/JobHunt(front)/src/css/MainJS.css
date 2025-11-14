@@ -1,5 +1,15 @@
-
+/* 
 .main{
     height: 77vh;
     background-color: #CBCBCB;
+} */
+
+
+
+.main{
+    height: 80vh;
+    background-color: #CBCBCB;
+}
+.main {
+  padding-bottom: 120px; /* prevents overlap with footer */
 }

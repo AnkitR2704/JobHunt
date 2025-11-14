@@ -1,0 +1,36 @@
+
+
+/* Make the entire page fill the full height */
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* full viewport height */
+}
+
+/* Let main content expand and push footer down */
+.dashboard-main {
+    flex: 1;
+}
+
+/* Footer styling */
+.footer {
+    background-color: #22223b;
+    color: #fff;
+    padding: 18px 0;
+    text-align: center;
+    width: 100%;
+    border-top: 2px solid #4a4e69;
+    position: relative; /* not fixed anymore */
+}
+
+.footer p {
+    margin: 4px 0;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    color: white;
+}
+
+.foot {
+    width: 100%;
+    margin: 0;
+}

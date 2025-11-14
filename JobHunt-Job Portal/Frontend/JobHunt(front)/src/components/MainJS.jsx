@@ -13,8 +13,8 @@ function MainJS(){
         <div className="main">
             <Routes>
                 <Route path='/home' element={<Home/>} />
-                <Route path='/Search job' element={<Searchjob/>}/>
-                 <Route path='/Applied Jobs' element={<Appliedjobs/>} />   
+                <Route path='/SearchJob' element={<Searchjob/>}/>
+                 <Route path='/AppliedJobs' element={<Appliedjobs/>} />   
                 <Route path='/Profile' element={<Profile/>} />   
                 
             </Routes>

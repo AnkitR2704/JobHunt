@@ -1,4 +1,4 @@
-
+/* 
 .head{
     background-color: #191950;
     color: white;
@@ -13,4 +13,81 @@
      
 
 }
+ */
 
+
+ /* 
+.head{
+    background-color: #22223b;
+    color: white;
+    height: 15vh;
+}
+
+.head div h3{
+
+    color: white;
+}
+
+.head nav a{
+    text-decoration: none;
+    color: white;
+}
+
+.head li{
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+
+.head div{
+    margin-top: 0vh;
+}
+ */
+
+ .head {
+    background-color: #22223b;
+    color: white;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+    border-bottom: 2px solid #4a4e69;
+}
+
+/* Title style */
+.head h3  {
+    color: white;
+    text-decoration: none;
+    font-size: 45px;
+    font-weight: 600;
+    margin-right: 60px;
+    margin-bottom: 40px;
+}
+
+/* Navbar Links */
+.head nav ul {
+    display: flex;
+    gap: 30px;
+    margin-left: auto;
+}
+
+.head nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: 0.3s ease;
+}
+
+.head nav a:hover {
+    color: #f2e9e4;
+    text-decoration: underline;
+}
+
+/* List Reset */
+.head li {
+    list-style: none;
+}
+
+.head nav button{
+    
+    margin-left: 350px;
+}

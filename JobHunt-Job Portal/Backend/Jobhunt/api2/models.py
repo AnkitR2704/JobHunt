@@ -50,3 +50,28 @@ class Job(models.Model):
 
     def __str__(self):
         return self.job_title
+
+
+
+class JobSeekerProfile(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    full_name = models.CharField(max_length=100)
+    email = models.EmailField()
+    contact = models.CharField(max_length=20, blank=True, null=True)
+    location = models.CharField(max_length=100, blank=True, null=True)
+    skills = models.TextField(blank=True, null=True)
+    experience = models.CharField(max_length=50, blank=True, null=True)
+    education = models.CharField(max_length=100, blank=True, null=True)
+    resume = models.FileField(upload_to='resumes/', blank=True, null=True)
+
+    def __str__(self):
+        return self.full_name
+
+
+class AppliedJob(models.Model):
+    jobseeker = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    job = models.ForeignKey('Job', on_delete=models.CASCADE)
+    applied_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.jobseeker.username} -> {self.job.job_title}"

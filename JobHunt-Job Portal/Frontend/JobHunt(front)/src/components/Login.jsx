@@ -51,11 +51,11 @@ axios.post(url, data, {
     //     </div>
     <div className="login-container">
   <h2>Welcome to <b><i>JOBHUNT</i></b></h2>
-  <figure class="text-center">
-  <blockquote class="blockquote">
+  <figure className="text-center">
+  <blockquote className="blockquote">
     <p>Helping you discover the career you deserve.</p>
   </blockquote>
-  <figcaption class="blockquote-footer">
+  <figcaption className="blockquote-footer">
     JobHunt <cite title="Source Title"></cite>
   </figcaption>
 </figure>

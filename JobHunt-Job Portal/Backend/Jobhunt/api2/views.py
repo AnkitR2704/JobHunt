@@ -8,7 +8,7 @@ from .serializers import RegisterSerializer, LoginSerializer
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.views import APIView
 
-from .serializers import JobSerializer
+from .serializers import JobSerializer,ApplicantListSerializer
 from .models import Job
 
 from rest_framework.permissions import AllowAny
@@ -18,6 +18,9 @@ from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticated
 from .models import CompanyProfile
 from .serializers import CompanyProfileSerializer
+
+from .models import JobSeekerProfile
+from .serializers import JobSeekerProfileSerializer
 
 # Registration view
 @api_view(['POST'])
@@ -145,3 +148,117 @@ def update_job(request, job_id):
         serializer.save()
         return Response(serializer.data)
     return Response(serializer.errors, status=400)
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_jobseeker_profile(request):
+    try:
+        profile = JobSeekerProfile.objects.get(user=request.user)
+        serializer = JobSeekerProfileSerializer(profile)
+        return Response(serializer.data)
+    except JobSeekerProfile.DoesNotExist:
+        return Response({"message": "Profile not found"}, status=404)
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def save_jobseeker_profile(request):
+    try:
+        profile = JobSeekerProfile.objects.get(user=request.user)
+        serializer = JobSeekerProfileSerializer(profile, data=request.data, partial=True)
+    except JobSeekerProfile.DoesNotExist:
+        serializer = JobSeekerProfileSerializer(data=request.data)
+
+    if serializer.is_valid():
+        serializer.save(user=request.user)
+        return Response(serializer.data)
+    return Response(serializer.errors, status=400)
+
+
+@api_view(['GET'])
+@permission_classes([AllowAny])  # if you want all users (even unauthenticated) to view jobs
+def get_all_jobs(request):
+    jobs = Job.objects.all()
+    serializer = JobSerializer(jobs, many=True)
+    return Response(serializer.data)
+
+
+
+from .models import AppliedJob, Job
+from .serializers import AppliedJobSerializer
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def apply_for_job(request, job_id):
+    user = request.user
+    try:
+        job = Job.objects.get(id=job_id)
+        # Prevent multiple applications for same job
+        if AppliedJob.objects.filter(jobseeker=user, job=job).exists():
+            return Response({"message": "You already applied for this job"}, status=400)
+
+        AppliedJob.objects.create(jobseeker=user, job=job)
+        return Response({"message": "Job applied successfully!"}, status=201)
+    except Job.DoesNotExist:
+        return Response({"message": "Job not found"}, status=404)
+    
+    
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_applied_jobs(request):
+    applied = AppliedJob.objects.filter(jobseeker=request.user)
+    serializer = AppliedJobSerializer(applied, many=True)
+    return Response(serializer.data)
+
+# @api_view(['GET'])
+# @permission_classes([IsAuthenticated])
+# def get_applied_jobs(request):
+#     applied = AppliedJob.objects.filter(jobseeker=request.user)
+#     data = []
+
+#     for app in applied:
+#         data.append({
+#             "id": app.id,
+#             "job_id": app.job.id,
+#             "job_title": app.job.job_title,
+#             "company": app.job.company.company_name,
+#             "location": app.job.location,
+#             "salary": app.job.salary,
+#             "experience": app.job.experience,
+#             "skills": app.job.skills,
+#             "applied_at": app.applied_at
+#         })
+
+#     return Response(data)
+
+
+
+# @api_view(['GET'])
+# @permission_classes([IsAuthenticated])
+# def employer_applicants(request):
+#     jobs = Job.objects.filter(company__user=request.user) # get all jobs posted by employer
+#     applicants = AppliedJob.objects.filter(job__in=jobs)  # get all applicants of those jobs
+#     serializer = ApplicantSerializer(applicants, many=True)
+#     return Response(serializer.data)
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def employer_view_applicants(request):
+
+    try:
+        employer = request.user
+        company = CompanyProfile.objects.get(user=employer)
+
+        # All jobs posted by this employer
+        jobs = Job.objects.filter(company=company)
+
+        # All applicants for these jobs
+        applicants = AppliedJob.objects.filter(job__in=jobs)
+
+        serializer = ApplicantListSerializer(applicants, many=True)
+        return Response(serializer.data)
+
+    except CompanyProfile.DoesNotExist:
+        return Response({"error": "Employer profile not found"}, status=404)
